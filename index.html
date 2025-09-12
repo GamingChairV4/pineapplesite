@@ -9,8 +9,9 @@
       height: 100%;
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('30735102-48be-420f-a489-3324eb98be0f.png') no-repeat center center fixed;
+      background: url('pineapple.png') no-repeat center center fixed;
       background-size: cover;
+      overflow: hidden;
     }
     .header {
       position: absolute;
@@ -20,22 +21,48 @@
       align-items: center;
       gap: 10px;
     }
-    .header img {
-      width: 40px;
-      height: 40px;
-    }
     .header h1 {
       margin: 0;
       font-size: 28px;
       color: yellow;
       font-weight: bold;
     }
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .center h2 {
+      font-size: 36px;
+      color: white;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: yellow;
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>pineapple</h1>
-    <img src="https://i.ibb.co/7SRDP2b/pineapple.png" alt="pineapple logo">
+    <h1>pineapple 🍍</h1>
+  </div>
+
+  <div class="center">
+    <h2>Pineapple Script</h2>
+    <a href="pineapple.lua" class="btn">Download</a>
   </div>
 </body>
 </html>
