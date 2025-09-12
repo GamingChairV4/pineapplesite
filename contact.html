@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pineapple BedWars Enhancement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://raw.githubusercontent.com/GamingChairV4/pineapplesite/main/pineapple.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #ffcc00;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #ffcc00;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .contact-hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .contact-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            color: #ddd;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(35, 35, 45, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+        
+        .contact-info h2 {
+            color: #ffcc00;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 10px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-item i {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .info-content h3 {
+            margin-bottom: 5px;
+            color: #ffcc00;
+        }
+        
+        .info-content p {
+            color: #ddd;
+            line-height: 1.5;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 204, 0, 0.1);
+            color: #ffcc00;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border: 1px solid #ffcc00;
+        }
+        
+        .social-links a:hover {
+            background: #ffcc00;
+            color: #333;
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(35, 35, 45, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+        
+        .contact-form h2 {
+            color: #ffcc00;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffcc00;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ffcc00;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ffcc00;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: 2px solid #ffcc00;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .submit-btn:hover {
+            background-color: transparent;
+            color: #ffcc00;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .faq-section {
+            margin: 60px 0;
+            background: rgba(35, 35, 45, 0.7);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(255, 204, 0, 0.3);
+        }
+        
+        .faq-section h2 {
+            color: #ffcc00;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.2);
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            color: #ffcc00;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #ddd;
+            line-height: 1.6;
+            padding: 10px 0;
+            display: none;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top: 2px solid #ffcc00;
+            background: rgba(20, 20, 30, 0.7);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: #aaa;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-pineapple"></i>
+                Pineapple
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about-pineapple">Features</a></li>
+                    <li><a href="index.html#download">Download</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="contact-hero">
+            <h1>Get In Touch With Us</h1>
+            <p>Have questions, need support, or want to provide feedback? We're here to help you with anything related to Pineapple BedWars Enhancement.</p>
+        </section>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-content">
+                        <h3>Discord</h3>
+                        <p>Soon</p>
+                        <p>Soon</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fab fa-discord"></i>
+                    <div class="info-content">
+                        <h3>Discord Server</h3>
+                        <p>Join our community for support, updates, and discussions</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-content">
+                        <h3>Response Time</h3>
+                        <p>We typically respond to Discords within 24 hours</p>
+                        <p>Discord support is usually faster</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="Discord">Discord Address</label>
+                        <input type="Discord" id="Discord" placeholder="Enter your Discord" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="support">Technical Support</option>
+                            <option value="bug">Report a Bug</option>
+                            <option value="suggestion">Feature Suggestion</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+        
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I install Pineapple? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Download the script from our official website, then follow the installation guide provided in the documentation. Make sure you have the required software installed first.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is Pineapple free to use? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, Pineapple offers a free version with basic features. We also have a premium version with additional enhancements and priority support.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is Pineapple detectable? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We designed Pineapple with stealth in mind. However, no cheat is 100% undetectable. Use at your own risk and always follow best practices.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Which BedWars versions are supported? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Pineapple currently supports BedWars versions 1, 2, and 3. We regularly update to maintain compatibility with new versions.</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-pineapple"></i> Pineapple
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about-pineapple">Features</a>
+                    <a href="index.html#download">Download</a>
+                    <a href="contact.html">Support</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#privacy">Privacy</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Pineapple. This is a fan-made project not affiliated with Roblox or BedWars.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // FAQ toggle functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
